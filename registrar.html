@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QUEUESKI - Registrar</title>
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/nav.css">
+</head>
+<body>
+
+    <!-- Shared Student Navbar -->
+    <div id="sharedStudentNavbar" data-page="registrar"></div>
+
+    <main class="dashboard-container full-screen-page">
+
+        <!-- Back to Main Dashboard -->
+        <div class="registrar-back-link">
+            <a href="home.html">
+                ← Back to Main Dashboard
+            </a>
+        </div>
+
+        <!-- QUEUE STATUS -->
+        <section class="welcome-card registrar-queue-section">
+
+            <div class="registrar-queue-grid">
+
+                <!-- NOW SERVING -->
+                <div class="registrar-queue-card registrar-now-serving">
+                    <span class="registrar-queue-label registrar-primary-label">
+                        Now Serving
+                    </span>
+
+                    <h1 id="nowServingNum" class="registrar-queue-number">
+                        #042
+                    </h1>
+                </div>
+
+                <!-- PREPARING / NEXT -->
+                <div class="registrar-queue-card registrar-preparing">
+                    <span class="registrar-queue-label registrar-muted-label">
+                        Preparing / Next
+                    </span>
+
+                    <div id="preparingList" class="registrar-preparing-list">
+                        <span>#043</span>
+                        <span>#044</span>
+                        <span>#045</span>
+                    </div>
+                </div>
+
+                <!-- YOUR QUEUE NUMBER -->
+                <div class="registrar-queue-card registrar-your-ticket">
+                    <span class="registrar-queue-label registrar-muted-label">
+                        Your Queue Number
+                    </span>
+
+                    <h1 id="userTicketNum" class="registrar-queue-number registrar-ticket-text">
+                        #045
+                    </h1>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- REQUEST FORM + REQUEST LOGS -->
+        <div class="services-grid registrar-content-grid">
+
+            <!-- REQUEST ACADEMIC DOCUMENTS -->
+            <section class="welcome-card registrar-request-card">
+
+                <h3 class="registrar-form-title">
+                    Request Academic Documents
+                </h3>
+
+                <p class="registrar-form-description">
+                    Select the required credential records below to
+                    generate your queue ticket (#001–#500).
+                </p>
+
+                <form id="documentRequestForm" class="registrar-request-form">
+
+                    <!-- DOCUMENT TYPE -->
+                    <div class="registrar-form-group">
+                        <label for="docTypeSelect" class="registrar-form-label">
+                            Select Document Type
+                        </label>
+
+                        <select id="docTypeSelect" class="registrar-form-control" required>
+                            <option value="" disabled selected hidden>
+                                -- Choose Record Credential --
+                            </option>
+
+                            <option value="Transcript of Records (TOR)">
+                                Transcript of Records (TOR)
+                            </option>
+
+                            <option value="Certificate of Grades (COG)">
+                                Certificate of Grades (COG)
+                            </option>
+
+                            <option value="Honorable Dismissal Certificate">
+                                Honorable Dismissal Certificate
+                            </option>
+
+                            <option value="Enrollment Verification Certificate">
+                                Enrollment Verification Certificate
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- NUMBER OF COPIES -->
+                    <div class="registrar-form-group">
+                        <label for="docQtyInput" class="registrar-form-label">
+                            Number of Copies
+                        </label>
+
+                        <input
+                            type="number"
+                            id="docQtyInput"
+                            class="registrar-form-control registrar-quantity-input"
+                            min="1"
+                            max="5"
+                            value="1"
+                            required
+                        >
+                    </div>
+
+                    <!-- PURPOSE -->
+                    <div class="registrar-form-group">
+                        <label for="docPurposeInput" class="registrar-form-label">
+                            Purpose of Request
+                        </label>
+
+                        <textarea
+                            id="docPurposeInput"
+                            class="registrar-form-control registrar-purpose-input"
+                            rows="3"
+                            placeholder="Employment, Scholarship application, Transferring schools..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <!-- GET TICKET -->
+                    <button
+                        type="submit"
+                        class="action-btn registrar-submit-btn"
+                    >
+                        Get Ticket Number →
+                    </button>
+
+                </form>
+            </section>
+
+            <!-- DOCUMENT REQUEST LOGS -->
+            <section class="welcome-card registrar-logs-card">
+
+                <!-- ORANGE ACCENT LINE -->
+                <div class="registrar-logs-accent"></div>
+
+                <!-- LOG HEADER -->
+                <div class="registrar-logs-header">
+                    <h3 class="registrar-logs-title">
+                        Your Document Request Logs
+                    </h3>
+                </div>
+
+                <!-- LOG TABLE -->
+                <div class="registrar-logs-table-wrapper">
+                    <table class="registrar-logs-table">
+                        <thead>
+                            <tr>
+                                <th>Queue #</th>
+                                <th>Document</th>
+                                <th>Qty</th>
+                                <th>Purpose</th>
+                                <th>Status Tracking</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="registrarLogsBody"></tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Shared components must load before page-specific JavaScript -->
+    <script src="../js/common.js"></script>
+    <script src="../js/registrar.js"></script>
+
+</body>
+</html>

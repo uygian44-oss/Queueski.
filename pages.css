@@ -1,0 +1,1262 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* =========================================
+    QUEUESKI - THEME VARIABLES
+========================================= */
+
+:root {
+    --bg-color: #F5F9FF;
+    --navbar-bg: #FFFFFF;
+    --navbar-border: rgba(52, 79, 120, 0.12);
+    --card-bg: #FFFFFF;
+    --card-border: #DCE8F8;
+    --text-main: #26364B;
+    --text-muted: #61728A;
+    --primary-orange: #769ACB;
+    --primary-dark: #344F78;
+    --accent-gradient: linear-gradient(135deg, #769ACB 0%, #344F78 100%);
+    --shadow-color: rgba(52, 79, 120, 0.12);
+    --icon-bg: #E6F0FF;
+    --menu-bg: #FFFFFF;
+    --menu-hover: #F0F6FF;
+}
+
+body.dark-mode {
+    --bg-color: #0C1422;
+    --navbar-bg: rgba(17, 28, 45, 0.92);
+    --navbar-border: rgba(187, 213, 245, 0.12);
+    --card-bg: rgba(20, 34, 56, 0.92);
+    --card-border: rgba(187, 213, 245, 0.12);
+    --text-main: #F1F5FC;
+    --text-muted: #A6B7CC;
+    --primary-orange: #8FB7EC;
+    --primary-dark: #BBD5F5;
+    --accent-gradient: linear-gradient(135deg, #769ACB 0%, #344F78 100%);
+    --shadow-color: rgba(0, 0, 0, 0.35);
+    --icon-bg: rgba(143, 183, 236, 0.13);
+    --menu-bg: rgba(20, 34, 56, 0.98);
+    --menu-hover: rgba(143, 183, 236, 0.12);
+}
+
+/* =========================================
+    GLOBAL STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dashboard-container h2,
+.dashboard-container h3 {
+    color: var(--primary-dark);
+}
+
+/* =========================================
+    DASHBOARD LAYOUT
+========================================= */
+
+.dashboard-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+.full-screen-page {
+    width: 100%;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 40px !important;
+}
+
+.wide-dashboard {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+/* =========================================
+    ELCOME CARD
+========================================= */
+
+.welcome-card {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 32px;
+    padding: 32px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    backdrop-filter: blur(16px);
+}
+
+.welcome-card::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--accent-gradient);
+    content: '';
+}
+
+.welcome-card h2 {
+    margin-bottom: 8px;
+    color: var(--primary-dark);
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.welcome-card p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.welcome-card strong {
+    padding: 4px 12px;
+    color: var(--primary-dark);
+    background: var(--icon-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+}
+
+/* =========================================
+    STUDENT SERVICE CARDS - HOME
+========================================= */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    padding: 32px 28px;
+    text-align: center;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    backdrop-filter: blur(16px);
+    transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary-orange);
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 20px;
+    font-size: 32px;
+    background: var(--icon-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.service-card:hover .card-icon {
+    background: var(--accent-gradient);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-card h3 {
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.service-card p {
+    flex-grow: 1;
+    margin-bottom: 24px;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================================
+    SHARED BUTTONS
+========================================= */
+
+.action-btn {
+    width: 100%;
+    padding: 14px;
+    color: #FFFFFF;
+    background: var(--accent-gradient);
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.action-btn:focus-visible,
+.logout-btn:focus-visible,
+.settings-btn:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 3px;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    color: var(--primary-dark);
+    background: transparent;
+    border: 1.5px solid var(--primary-dark);
+    border-radius: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    color: #FFFFFF;
+    background: var(--accent-gradient);
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+    SETTINGS MENU
+    Navbar layout remains in nav.css
+========================================= */
+
+.settings-container {
+    position: relative;
+    display: inline-block;
+}
+
+.settings-menu {
+    position: absolute;
+    top: 52px;
+    right: 0;
+    z-index: 9999;
+    display: none;
+    width: 210px;
+    overflow: hidden;
+    background: var(--menu-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    box-shadow: 0 15px 35px var(--shadow-color);
+    backdrop-filter: blur(20px);
+}
+
+.settings-menu.show {
+    display: flex !important;
+    flex-direction: column;
+}
+
+.settings-menu a {
+    padding: 14px 18px;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--card-border);
+    text-align: left;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+}
+
+.settings-menu a:last-child {
+    border-bottom: none;
+}
+
+.settings-menu a:hover {
+    padding-left: 22px;
+    color: var(--primary-dark);
+    background: var(--menu-hover);
+}
+
+/* =========================================
+    BACK TO DASHBOARD LINKS
+========================================= */
+
+.accounting-back-link,
+.registrar-back-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: transform 0.2s ease;
+}
+
+.accounting-back-link a,
+.registrar-back-link a {
+    display: inline-block;
+    color: var(--primary-dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.accounting-back-link:hover,
+.registrar-back-link:hover {
+    transform: translateX(-3px);
+}
+
+.accounting-back-link a:hover,
+.registrar-back-link a:hover {
+    color: var(--primary-orange);
+}
+
+.accounting-back-link:focus-within,
+.registrar-back-link:focus-within {
+    outline: 2px solid var(--primary-orange);
+    outline-offset: 4px;
+}
+
+/* =========================================
+    ACCOUNTING & REGISTRAR QUEUE SECTIONS
+    Restored from original HTML
+========================================= */
+
+.accounting-queue-section,
+.registrar-queue-section {
+    padding: 24px;
+    margin-bottom: 32px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+/* The old queue section does not use the generic accent stripe */
+.accounting-queue-section::before,
+.registrar-queue-section::before {
+    display: none;
+}
+
+.accounting-queue-grid,
+.registrar-queue-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.accounting-queue-card,
+.registrar-queue-card {
+    flex: 1 1 220px;
+    min-width: 220px;
+    padding: 20px;
+    overflow: visible;
+    background: var(--menu-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: none;
+    transition: none;
+}
+
+.accounting-queue-card:hover,
+.registrar-queue-card:hover {
+    transform: none;
+}
+
+/* Original individual queue card borders */
+.accounting-now-serving,
+.registrar-now-serving {
+    background: var(--menu-bg);
+    border: 2px solid var(--primary-dark);
+}
+
+.accounting-preparing,
+.registrar-preparing {
+    background: var(--menu-bg);
+    border: 1px solid var(--card-border);
+}
+
+.accounting-your-ticket,
+.registrar-your-ticket {
+    background: var(--menu-hover);
+    border: 1px dashed var(--primary-dark);
+}
+
+/* Queue labels */
+.accounting-queue-label,
+.registrar-queue-label {
+    display: block;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.accounting-now-serving .accounting-queue-label,
+.registrar-primary-label {
+    color: var(--primary-dark);
+}
+
+.accounting-preparing .accounting-queue-label,
+.accounting-your-ticket .accounting-queue-label,
+.registrar-muted-label {
+    color: var(--text-muted);
+}
+
+/* Original queue number sizes and spacing */
+.accounting-queue-number,
+.registrar-queue-number {
+    display: block;
+    margin: 8px 0 0;
+    color: var(--primary-dark);
+    font-size: 52px;
+    font-weight: 900;
+    line-height: normal;
+    overflow-wrap: anywhere;
+}
+
+.accounting-your-ticket .accounting-queue-number,
+.registrar-your-ticket .registrar-queue-number {
+    color: var(--text-main);
+}
+
+/* Preparing / Next numbers */
+.accounting-preparing-list,
+.registrar-preparing-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    min-height: 0;
+    margin-top: 14px;
+    color: var(--text-main);
+    font-size: 24px;
+    font-weight: 800;
+    line-height: normal;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+    ACCOUNTING SUMMARY CARDS
+    Restore original vertical, left-aligned layout
+========================================= */
+
+.accounting-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.accounting-summary-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 24px;
+    text-align: left;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.accounting-summary-card:hover {
+    transform: none;
+}
+
+.accounting-summary-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 12px;
+    font-size: 24px;
+    background: var(--icon-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+}
+
+.accounting-summary-card h3,
+.accounting-summary-label {
+    margin-bottom: 4px;
+    color: var(--text-muted) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.5;
+    letter-spacing: normal !important;
+    text-transform: uppercase;
+}
+
+.accounting-summary-card p,
+.accounting-summary-amount {
+    margin-bottom: 0;
+    color: var(--text-main);
+    font-family: monospace;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.accounting-summary-card .accounting-balance-due {
+    color: var(--primary-dark);
+}
+
+/* =========================================
+    ACCOUNTING LEDGER
+========================================= */
+
+.accounting-ledger-card {
+    padding: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.accounting-ledger-header {
+    padding: 20px 24px;
+    background: var(--menu-hover);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.accounting-ledger-header h3 {
+    color: var(--primary-dark);
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.accounting-ledger-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.accounting-ledger-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+.accounting-ledger-table thead tr {
+    border-bottom: 2px solid var(--card-border);
+}
+
+.accounting-ledger-table th {
+    padding: 16px 24px;
+    color: var(--text-main);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.accounting-ledger-table td {
+    padding: 16px 24px;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--card-border);
+    vertical-align: middle;
+}
+
+.accounting-ledger-table tbody tr:hover {
+    background: var(--menu-hover);
+}
+
+.accounting-ledger-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* =========================================
+    ACCOUNTING ACTION BUTTONS
+========================================= */
+
+.accounting-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+    margin-bottom: 0;
+}
+
+.accounting-download-btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.accounting-checkout-btn {
+    width: auto;
+    padding: 12px 32px;
+}
+
+/* =========================================
+    REGISTRAR CONTENT LAYOUT
+========================================= */
+
+.registrar-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    align-items: start;
+    gap: 32px;
+    margin-bottom: 28px;
+}
+
+.registrar-request-card {
+    min-width: 0;
+    padding: 32px;
+    margin-bottom: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.registrar-form-title {
+    margin-bottom: 6px;
+    color: var(--primary-dark);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.registrar-form-description {
+    margin-bottom: 24px;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =========================================
+    REGISTRAR REQUEST FORM
+========================================= */
+
+.registrar-request-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.registrar-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.registrar-form-label {
+    color: var(--text-main);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.registrar-form-control {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 14px;
+    color: var(--text-main);
+    background: var(--menu-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.registrar-form-control:focus {
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 3px rgba(118, 154, 203, 0.18);
+}
+
+.registrar-form-control::placeholder {
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+.registrar-form-control option {
+    color: var(--text-main);
+    background: var(--card-bg);
+}
+
+.registrar-quantity-input {
+    width: 100%;
+}
+
+.registrar-purpose-input {
+    min-height: 100px;
+    resize: none;
+}
+
+.registrar-submit-btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px;
+    color: #FFFFFF;
+    background: var(--accent-gradient);
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.registrar-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+/* =========================================
+    REGISTRAR REQUEST LOGS
+========================================= */
+
+.registrar-logs-card {
+    position: relative;
+    min-width: 0;
+    min-height: 100%;
+    padding: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+/* Keep the accent vertical, on the left side */
+.registrar-logs-card::before {
+    display: none;
+}
+
+.registrar-logs-accent {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: 5px;
+    height: auto;
+    background: var(--accent-gradient);
+}
+
+.registrar-logs-header {
+    position: relative;
+    padding: 20px 24px 20px 29px;
+    background: var(--menu-hover);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.registrar-logs-header h3,
+.registrar-logs-title {
+    color: var(--primary-dark);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.registrar-logs-table-wrapper {
+    width: 100%;
+    min-height: 350px;
+    max-height: 430px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.registrar-logs-table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13.5px;
+}
+
+.registrar-logs-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--card-bg);
+}
+
+.registrar-logs-table th {
+    padding: 16px 20px;
+    color: var(--text-main);
+    background: var(--card-bg);
+    border-bottom: 2px solid var(--card-border);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.registrar-logs-table td {
+    padding: 16px 20px;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--card-border);
+    vertical-align: middle;
+}
+
+.registrar-logs-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.registrar-logs-table tbody tr:hover {
+    background: var(--menu-hover);
+}
+
+.registrar-logs-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.registrar-logs-table td:last-child {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Logs scrollbar */
+.registrar-logs-table-wrapper::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.registrar-logs-table-wrapper::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+.registrar-logs-table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--card-border);
+    border-radius: 10px;
+}
+
+.registrar-logs-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-orange);
+}
+
+
+/* ===================================== */
+/*          STUDENT PROFILE STYLES       */
+/* ===================================== */
+
+.student-profile-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px 40px;
+}
+
+/* ===================================== */
+/*        PROFILE WELCOME SECTION        */
+/* ===================================== */
+
+.student-profile-welcome {
+    margin-bottom: 24px;
+}
+
+.student-profile-welcome h2 {
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.student-profile-welcome p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ===================================== */
+/*          PROFILE CONTENT CARDS        */
+/* ===================================== */
+
+.student-profile-card {
+    margin-bottom: 24px;
+    padding: 26px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* ===================================== */
+/*          SECTION HEADING               */
+/* ===================================== */
+
+.student-profile-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.student-profile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: var(--icon-bg);
+    border-radius: 14px;
+    font-size: 23px;
+}
+
+.student-profile-section-heading h3 {
+    margin: 0 0 5px;
+    color: var(--text-main);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.student-profile-section-heading p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ===================================== */
+/*         PERSONAL INFORMATION           */
+/* ===================================== */
+
+.student-profile-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.student-profile-info-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    min-width: 0;
+    padding: 18px;
+    background: var(--bg-color);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+}
+
+.student-profile-label {
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.student-profile-info-item strong {
+    overflow-wrap: anywhere;
+    color: var(--text-main);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* ===================================== */
+/*           ACADEMIC HISTORY             */
+/* ===================================== */
+
+.student-profile-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+}
+
+.student-profile-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.student-profile-table thead {
+    background: var(--icon-bg);
+}
+
+.student-profile-table th {
+    padding: 16px;
+    color: var(--primary-dark);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.student-profile-table td {
+    padding: 16px;
+    color: var(--text-main);
+    font-size: 13px;
+    border-top: 1px solid var(--card-border);
+    white-space: nowrap;
+}
+
+.student-profile-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.student-profile-table tbody tr:hover {
+    background: var(--menu-hover);
+}
+
+/* ===================================== */
+/*        LOADING AND ERROR MESSAGES      */
+/* ===================================== */
+
+.student-profile-status {
+    margin-bottom: 24px;
+    padding: 18px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    font-size: 14px;
+}
+
+.student-profile-error {
+    background: var(--card-bg);
+    border-color: #e5a5a5;
+    color: #c0392b;
+}
+
+.student-profile-empty {
+    margin: 16px 0 0;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ===================================== */
+/*            RESPONSIVE DESIGN          */
+/* ===================================== */
+
+@media (max-width: 600px) {
+
+    .student-profile-container {
+        margin: 20px auto;
+        padding: 0 14px 30px;
+    }
+
+    .student-profile-card {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .student-profile-section-heading {
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .student-profile-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        font-size: 20px;
+    }
+
+    .student-profile-section-heading h3 {
+        font-size: 16px;
+    }
+
+    .student-profile-section-heading p {
+        font-size: 12px;
+    }
+
+    .student-profile-info-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .student-profile-info-item {
+        padding: 15px;
+    }
+
+    .student-profile-info-item strong {
+        font-size: 14px;
+    }
+
+    .student-profile-table th,
+    .student-profile-table td {
+        padding: 13px;
+    }
+}
+
+/* ===================================== */
+/*          REDUCED MOTION SUPPORT        */
+/* ===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .student-profile-card,
+    .student-profile-table tbody tr {
+        transition: none;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .registrar-content-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .dashboard-container {
+        margin: 24px auto;
+        padding: 0 16px;
+    }
+
+    .full-screen-page {
+        padding: 24px 16px !important;
+    }
+
+    .wide-dashboard {
+        margin: 24px auto;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .welcome-card {
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+
+    .welcome-card h2 {
+        font-size: 24px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .service-card {
+        padding: 26px 22px;
+    }
+
+    .accounting-queue-grid,
+    .registrar-queue-grid {
+        flex-direction: column;
+    }
+
+    .accounting-queue-card,
+    .registrar-queue-card {
+        flex-basis: auto;
+        min-width: 0;
+        width: 100%;
+    }
+
+    .accounting-queue-number,
+    .registrar-queue-number {
+        font-size: 42px;
+    }
+
+    .accounting-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .accounting-summary-card {
+        padding: 24px;
+    }
+
+    .accounting-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .accounting-download-btn,
+    .accounting-checkout-btn {
+        width: 100%;
+    }
+
+    .accounting-ledger-header {
+        padding: 18px;
+    }
+
+    .accounting-ledger-table th,
+    .accounting-ledger-table td {
+        padding: 12px;
+    }
+
+    .registrar-content-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .registrar-request-card {
+        padding: 24px;
+    }
+
+    .registrar-logs-header {
+        padding: 18px 18px 18px 23px;
+    }
+
+    .registrar-logs-table th,
+    .registrar-logs-table td {
+        padding: 14px 16px;
+    }
+}
+
+/* =========================================
+    ACCESSIBILITY - REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

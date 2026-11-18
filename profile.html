@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QUEUESKI - Student Profile</title>
+
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/nav.css">
+</head>
+
+<body>
+
+    <!-- ===================================== -->
+    <!-- SHARED STUDENT NAVBAR -->
+    <!-- ===================================== -->
+
+    <div id="sharedStudentNavbar" data-page="profile"></div>
+
+    <!-- ===================================== -->
+    <!-- STUDENT PROFILE DASHBOARD -->
+    <!-- ===================================== -->
+
+    <main class="dashboard-container student-profile-container">
+
+        <!-- Page Heading -->
+        <section class="welcome-card student-profile-welcome">
+            <h2>Student Profile</h2>
+            <p>
+                View your personal information and academic history.
+            </p>
+        </section>
+
+        <!-- Loading Message -->
+        <div
+            class="student-profile-status"
+            id="profileLoading"
+            role="status"
+            aria-live="polite"
+        >
+            Loading your profile...
+        </div>
+
+        <!-- Error Message -->
+        <div
+            class="student-profile-status student-profile-error"
+            id="profileError"
+            role="alert"
+            hidden
+        ></div>
+
+        <!-- Profile Content -->
+        <div id="profileContent" hidden>
+
+            <!-- Personal Information -->
+            <section class="student-profile-card">
+
+                <div class="student-profile-section-heading">
+                    <div class="student-profile-icon">👤</div>
+
+                    <div>
+                        <h3>Personal Information</h3>
+                        <p>Your registered student information</p>
+                    </div>
+                </div>
+
+                <div class="student-profile-info-grid">
+
+                    <div class="student-profile-info-item">
+                        <span class="student-profile-label">
+                            Student Number
+                        </span>
+
+                        <strong id="profileStudentId">—</strong>
+                    </div>
+
+                    <div class="student-profile-info-item">
+                        <span class="student-profile-label">
+                            Full Name
+                        </span>
+
+                        <strong id="profileFullName">—</strong>
+                    </div>
+
+                    <div class="student-profile-info-item">
+                        <span class="student-profile-label">
+                            Last Name
+                        </span>
+
+                        <strong id="profileLastName">—</strong>
+                    </div>
+
+                    <div class="student-profile-info-item">
+                        <span class="student-profile-label">
+                            First Name
+                        </span>
+
+                        <strong id="profileFirstName">—</strong>
+                    </div>
+
+                    <div class="student-profile-info-item">
+                        <span class="student-profile-label">
+                            Middle Name
+                        </span>
+
+                        <strong id="profileMiddleName">—</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Current Enrollment -->
+            <section class="student-profile-card">
+
+                <div class="student-profile-section-heading">
+                    <div class="student-profile-icon">🎓</div>
+
+                    <div>
+                        <h3>Current Enrollment</h3>
+                        <p>Your latest recorded academic enrollment</p>
+                    </div>
+                </div>
+
+                <div
+                    id="currentEnrollment"
+                    class="student-profile-info-grid"
+                >
+                    <!-- Populated by profile.js -->
+                </div>
+
+            </section>
+
+            <!-- Academic History -->
+            <section class="student-profile-card">
+
+                <div class="student-profile-section-heading">
+                    <div class="student-profile-icon">📚</div>
+
+                    <div>
+                        <h3>Academic History</h3>
+                        <p>Your recorded school years and semesters</p>
+                    </div>
+                </div>
+
+                <div class="student-profile-table-wrapper">
+
+                    <table class="student-profile-table">
+
+                        <thead>
+                            <tr>
+                                <th>School Year</th>
+                                <th>Grade Level</th>
+                                <th>Semester</th>
+                                <th>Strand</th>
+                                <th>Section</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="academicHistoryBody">
+                            <!-- Populated by profile.js -->
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p
+                    id="academicHistoryEmpty"
+                    class="student-profile-empty"
+                    hidden
+                >
+                    No academic history is available.
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- ===================================== -->
+    <!-- SCRIPTS -->
+    <!-- ===================================== -->
+
+    <script src="../js/common.js"></script>
+    <script src="../js/profile.js"></script>
+
+</body>
+
+</html>

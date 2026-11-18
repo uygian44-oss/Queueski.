@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QUEUESKI - Accounting</title>
+
+        <link rel="stylesheet" href="../css/pages.css">
+        <link rel="stylesheet" href="../css/nav.css">
+    </head>
+    <body>
+
+        <!-- Shared Student Navbar -->
+        <div id="sharedStudentNavbar" data-page="accounting"></div>
+
+        <main class="dashboard-container full-screen-page">
+
+            <!-- Back to Main Dashboard -->
+            <div class="accounting-back-link">
+                <a href="home.html">
+                    ← Back to Main Dashboard
+                </a>
+            </div>
+
+            <!-- QUEUE STATUS -->
+            <section class="welcome-card accounting-queue-section">
+
+                <div class="accounting-queue-grid">
+
+                    <!-- NOW SERVING -->
+                    <div class="accounting-queue-card accounting-now-serving">
+                        <span class="accounting-queue-label">Now Serving</span>
+
+                        <h1 id="nowServingNum" class="accounting-queue-number">
+                            No ticket
+                        </h1>
+                    </div>
+
+                    <!-- PREPARING / NEXT -->
+                    <div class="accounting-queue-card accounting-preparing">
+                        <span class="accounting-queue-label">Preparing /
+                            Next</span>
+
+                        <div id="preparingList"
+                            class="accounting-preparing-list"></div>
+                    </div>
+
+                    <!-- YOUR QUEUE NUMBER -->
+                    <div class="accounting-queue-card accounting-your-ticket">
+                        <span class="accounting-queue-label">Your Queue
+                            Number</span>
+
+                        <h1 id="userTicketNum"
+                            class="accounting-queue-number accounting-ticket-text">
+                            No ticket
+                        </h1>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ACCOUNTING SUMMARY -->
+            <section class="services-grid accounting-summary-grid">
+
+                <!-- TOTAL BALANCE -->
+                <div class="service-card accounting-summary-card">
+
+                    <div class="card-icon accounting-summary-icon">
+                        💰
+                    </div>
+
+                    <h3 class="accounting-summary-label">
+                        Total Balance Due
+                    </h3>
+
+                    <p class="accounting-summary-amount accounting-balance-due">
+                        ₱ 15,450.00
+                    </p>
+
+                </div>
+
+                <!-- LAST PAYMENT -->
+                <div class="service-card accounting-summary-card">
+
+                    <div class="card-icon accounting-summary-icon">
+                        ✅
+                    </div>
+
+                    <h3 class="accounting-summary-label">
+                        Last Payment Posted
+                    </h3>
+
+                    <p
+                        class="accounting-summary-amount accounting-last-payment">
+                        ₱ 5,000.00
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- STATEMENT OF ACCOUNT -->
+            <section class="welcome-card accounting-ledger-card">
+
+                <div class="accounting-ledger-header">
+                    <h3>Statement of Account Ledger</h3>
+                </div>
+
+                <div class="accounting-ledger-wrapper">
+                    <table class="accounting-ledger-table">
+
+                        <thead>
+                            <tr>
+                                <th>Post Date</th>
+                                <th>Fee Item Description</th>
+                                <th>Reference ID</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="accountingLedgerBody"></tbody>
+
+                    </table>
+                </div>
+
+            </section>
+
+            <!-- ACCOUNTING ACTIONS -->
+            <div class="accounting-actions">
+
+                <button id="downloadSoaBtn"
+                    class="logout-btn accounting-download-btn">
+                    🖨️ Download Copy (SOA)
+                </button>
+
+                <button id="checkoutBtn"
+                    class="action-btn accounting-checkout-btn">
+                    Proceed to Checkout →
+                </button>
+
+            </div>
+
+        </main>
+
+        <script src="../js/common.js"></script>
+        <script src="../js/accounting.js"></script>
+
+    </body>
+</html>

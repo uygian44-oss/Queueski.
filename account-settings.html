@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUEUESKI - Account Settings</title>
+
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/account-settings.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="brand clickable-brand" id="btnHomeBrand">
+            <div class="logo-box">
+                <img
+                    src="../images/icplogo.jpg"
+                    alt="ICP Logo"
+                    class="brand-logo">
+            </div>
+
+            <div class="brand-text">
+                <span>QUEUESKI</span>
+                <small>ADMIN PANEL</small>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <a href="admin.html">📊 Overview</a>
+            <a href="admin.html">👥 Students</a>
+            <a href="admin.html">💳 Accounting</a>
+            <a href="admin.html">📋 Registrar / RIC</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button type="button" id="logoutBtn" class="logout-btn">
+                <span>↪</span>
+                <span>Sign Out</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+
+        <header class="top-bar">
+            <div>
+                <h1 class="settings-page-title">Account Settings</h1>
+                <p class="settings-page-subtitle">
+                    Manage your administrator account.
+                </p>
+            </div>
+
+            <div class="user-profile">
+                <span id="headerAdminName">System Admin</span>
+                <div id="sharedSettingsContainer"></div>
+            </div>
+        </header>
+
+        <main class="content-area">
+
+            <!-- Status Messages -->
+            <div
+                id="settingsMessage"
+                class="settings-message"
+                role="status"
+                aria-live="polite"
+                hidden>
+            </div>
+
+            <!-- My Account -->
+            <section class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>My Account</h2>
+                        <p>View and update your administrator information.</p>
+                    </div>
+                </div>
+
+                <form id="profileForm">
+                    <div class="settings-grid">
+
+                        <div class="settings-field">
+                            <label for="adminId">Administrator ID</label>
+                            <input
+                                type="text"
+                                id="adminId"
+                                readonly>
+                        </div>
+
+                        <div class="settings-field">
+                            <label for="adminRole">Role</label>
+                            <input
+                                type="text"
+                                id="adminRole"
+                                readonly>
+                        </div>
+
+                        <div class="settings-field settings-field-full">
+                            <label for="fullName">Full Name</label>
+                            <input
+                                type="text"
+                                id="fullName"
+                                maxlength="150"
+                                autocomplete="name"
+                                required>
+                        </div>
+
+                        <div class="settings-field settings-field-full">
+                            <label for="createdAt">Account Created</label>
+                            <input
+                                type="text"
+                                id="createdAt"
+                                readonly>
+                        </div>
+
+                    </div>
+
+                    <div class="settings-actions">
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                            id="saveProfileBtn">
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Change Password -->
+            <section class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Change Password</h2>
+                        <p>
+                            Confirm your current password before choosing a new one.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="passwordForm">
+                    <div class="settings-grid">
+
+                        <div class="settings-field settings-field-full">
+                            <label for="currentPassword">
+                                Current Password
+                            </label>
+                            <input
+                                type="password"
+                                id="currentPassword"
+                                autocomplete="current-password"
+                                required>
+                        </div>
+
+                        <div class="settings-field">
+                            <label for="newPassword">New Password</label>
+                            <input
+                                type="password"
+                                id="newPassword"
+                                minlength="8"
+                                autocomplete="new-password"
+                                required>
+                        </div>
+
+                        <div class="settings-field">
+                            <label for="confirmPassword">
+                                Confirm New Password
+                            </label>
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                minlength="8"
+                                autocomplete="new-password"
+                                required>
+                        </div>
+
+                    </div>
+
+                    <p class="settings-hint">
+                        Use at least 8 characters.
+                    </p>
+
+                    <div class="settings-actions">
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                            id="changePasswordBtn">
+                            Update Password
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Administrator Management -->
+            <section class="panel" id="adminManagementPanel" hidden>
+                <div class="panel-header">
+                    <div>
+                        <h2>Manage Administrators</h2>
+                        <p>
+                            Create and manage administrator accounts.
+                        </p>
+                    </div>
+                </div>
+
+                <p>
+                    Administrator management will be enabled after
+                    the Super Admin permissions and management API
+                    are implemented.
+                </p>
+
+                <div class="settings-actions">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="backToDashboardBtn">
+                        ← Back to Dashboard
+                    </button>
+                </div>
+            </section>
+
+            <div class="settings-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="backToDashboardBtnBottom">
+                    ← Back to Dashboard
+                </button>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Logout Confirmation -->
+    <div id="logoutModal" class="modal-overlay">
+        <div class="modal-card">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to exit the admin panel?</p>
+
+            <div class="modal-actions">
+                <button
+                    type="button"
+                    id="cancelLogout"
+                    class="btn btn-secondary">
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    id="confirmLogout"
+                    class="btn btn-danger">
+                    Log Out
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/account-settings.js"></script>
+
+</body>
+</html>

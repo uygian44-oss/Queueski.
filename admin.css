@@ -1,0 +1,1224 @@
+
+/* =========================================
+   QUEUESKI - ADMIN STYLES
+   Default: Dark Navy
+   Supports: Light / Dark Mode
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+    min-width: 320px;
+}
+
+body {
+    --page-bg: #0C1422;
+    --sidebar-bg: #111C2D;
+    --panel-bg: #111C2D;
+    --card-bg: #17243A;
+    --input-bg: #17243A;
+    --table-head-bg: #17243A;
+
+    --border-color: #263750;
+    --border-strong: #344964;
+
+    --text-color: #E5EDF8;
+    --heading-color: #F1F5FC;
+    --muted-color: #A6B7CC;
+    --subtle-color: #91A5BF;
+
+    --accent-color: #BBD5F5;
+    --accent-button: #769ACB;
+    --accent-hover-bg: rgba(143, 183, 236, 0.14);
+
+    --table-row-hover: rgba(143, 183, 236, 0.06);
+    --modal-overlay: rgba(0, 0, 0, 0.75);
+    --modal-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+
+    background-color: var(--page-bg);
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+body:not(.dark-mode) {
+    --page-bg: #F5F9FF;
+    --sidebar-bg: #FFFFFF;
+    --panel-bg: #FFFFFF;
+    --card-bg: #E6F0FF;
+    --input-bg: #FFFFFF;
+    --table-head-bg: #E6F0FF;
+
+    --border-color: #D5E3F5;
+    --border-strong: #BBD5F5;
+
+    --text-color: #344F78;
+    --heading-color: #344F78;
+    --muted-color: #607A9E;
+    --subtle-color: #7188A7;
+
+    --accent-color: #344F78;
+    --accent-button: #769ACB;
+    --accent-hover-bg: #E6F0FF;
+
+    --table-row-hover: #F5F9FF;
+    --modal-overlay: rgba(38, 63, 99, 0.35);
+    --modal-shadow: 0 20px 25px -5px rgba(52, 79, 120, 0.18);
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-box {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2px;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.brand-text span {
+    display: block;
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 1.05rem;
+}
+
+.brand-text small {
+    color: var(--subtle-color);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+}
+
+.nav-links a {
+    padding: 0.8rem 1rem;
+    color: var(--muted-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: var(--accent-hover-bg);
+    color: var(--accent-color);
+}
+
+.sidebar-footer {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
+}
+
+/* =========================================
+   LOGOUT BUTTON
+========================================= */
+
+.logout-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #F87171;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: #EF4444;
+    color: #FFFFFF;
+    border-color: #EF4444;
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.25);
+    transform: translateY(-1px);
+}
+
+.logout-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.logout-btn:hover svg {
+    transform: translateX(3px);
+}
+
+/* =========================================
+   MAIN LAYOUT AND TOP BAR
+========================================= */
+
+.main-wrapper {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    min-height: 64px;
+    background: var(--sidebar-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 1.5rem;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.top-bar input {
+    background: var(--input-bg);
+    border: 1px solid var(--border-strong);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    width: 320px;
+    max-width: 100%;
+    outline: none;
+}
+
+.top-bar input::placeholder {
+    color: var(--muted-color);
+}
+
+.top-bar input:focus {
+    border-color: #8FB7EC;
+    box-shadow: 0 0 0 3px rgba(118, 154, 203, 0.15);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    background: #769ACB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #FFFFFF;
+    flex-shrink: 0;
+}
+
+.content-area {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 0;
+}
+
+/* =========================================
+   METRIC CARDS
+========================================= */
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.metric-card {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 12px;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.metric-card .label {
+    font-size: 0.75rem;
+    color: var(--muted-color);
+    text-transform: uppercase;
+}
+
+.metric-card .value {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-top: 0.25rem;
+    color: var(--heading-color);
+}
+
+.metric-card .value.orange {
+    color: var(--accent-color);
+}
+
+/* =========================================
+   PANELS
+========================================= */
+
+.panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+    min-width: 0;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.panel-header h2 {
+    font-size: 1.1rem;
+    color: var(--heading-color);
+}
+
+.panel-header p {
+    margin-top: 0.35rem;
+    color: var(--muted-color);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* =========================================
+   COUNTERS
+========================================= */
+
+.counters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.counter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-strong);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.badge {
+    font-size: 0.7rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.ticket-num {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--heading-color);
+    margin: 0.2rem 0;
+}
+
+.student-id {
+    font-size: 0.8rem;
+    color: var(--muted-color);
+}
+
+.student-id span {
+    color: var(--text-color);
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn {
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.btn:hover:not(:disabled) {
+    opacity: 0.85;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.btn-primary {
+    background: #769ACB;
+    color: #FFFFFF;
+}
+
+.btn-secondary {
+    background: #344F78;
+    color: #FFFFFF;
+}
+
+.btn-danger {
+    background: #EF4444;
+    color: #FFFFFF;
+}
+
+.btn-danger:hover {
+    background: #DC2626;
+}
+
+.btn-sm {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+}
+
+.actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.btn:focus-visible,
+.logout-btn:focus-visible,
+.nav-links a:focus-visible,
+.settings-btn:focus-visible {
+    outline: 2px solid #8FB7EC;
+    outline-offset: 2px;
+}
+
+/* =========================================
+   TABLES
+========================================= */
+
+.table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.875rem;
+}
+
+.data-table th {
+    background: var(--table-head-bg);
+    padding: 0.75rem;
+    color: var(--muted-color);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.data-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    vertical-align: middle;
+}
+
+.data-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--table-row-hover);
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.student-cell {
+    font-weight: 600;
+    color: var(--heading-color);
+    white-space: nowrap;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* =========================================
+   REQUEST STATUS LABELS
+========================================= */
+
+.status-tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-pending {
+    background: rgba(234, 179, 8, 0.15);
+    color: #EAB308;
+}
+
+.status-progress {
+    background: rgba(143, 183, 236, 0.15);
+    color: #A9CBFA;
+}
+
+.status-completed {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22C55E;
+}
+
+.status-skipped {
+    background: rgba(156, 163, 175, 0.16);
+    color: #9CA3AF;
+}
+
+/* Improve contrast for status labels in light mode */
+body:not(.dark-mode) .status-pending {
+    color: #946500;
+}
+
+body:not(.dark-mode) .status-progress {
+    color: #345E96;
+}
+
+body:not(.dark-mode) .status-completed {
+    color: #16763A;
+}
+
+body:not(.dark-mode) .status-skipped {
+    color: #596579;
+}
+
+/* =========================================
+   STUDENT ACCOUNT FILTERS
+========================================= */
+
+.students-toolbar {
+    display: grid;
+    grid-template-columns:
+        minmax(140px, 0.8fr)
+        minmax(150px, 0.8fr)
+        minmax(220px, 1.6fr);
+    gap: 16px;
+    align-items: end;
+    margin: 20px 0;
+}
+
+.student-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.student-filter label {
+    color: var(--muted-color);
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.student-filter input,
+.student-filter select {
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.student-filter input::placeholder {
+    color: var(--muted-color);
+    opacity: 0.85;
+}
+
+.student-filter input:focus,
+.student-filter select:focus {
+    border-color: #8FB7EC;
+    box-shadow: 0 0 0 3px rgba(118, 154, 203, 0.15);
+}
+
+.student-filter select {
+    cursor: pointer;
+}
+
+.student-filter select option {
+    background: var(--panel-bg);
+    color: var(--text-color);
+}
+
+/* =========================================
+   LOGOUT CONFIRMATION MODAL
+========================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--modal-overlay);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-card {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 340px;
+    text-align: center;
+    box-shadow: var(--modal-shadow);
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.modal-card h3 {
+    color: var(--heading-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-card p {
+    color: var(--muted-color);
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   SHARED SETTINGS MENU
+========================================= */
+
+.settings-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.settings-btn {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-btn:hover {
+    background: var(--accent-hover-bg);
+}
+
+.settings-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 220px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.5rem;
+    box-shadow: var(--modal-shadow);
+    z-index: 1100;
+}
+
+.settings-menu.show {
+    display: block;
+}
+
+.settings-menu a {
+    display: block;
+    padding: 0.75rem;
+    border-radius: 8px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.settings-menu a:hover {
+    background: var(--accent-hover-bg);
+}
+
+.settings-menu .logout-link {
+    color: #EF4444;
+}
+
+
+
+/* =====================================
+   CLICKABLE STUDENT ID
+===================================== */
+
+.student-id-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--primary-color, #2563eb);
+    font: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.student-id-link:hover {
+    opacity: 0.75;
+}
+
+.student-id-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   FIXED ADMIN HEADER ALIGNMENT
+========================================= */
+
+.main-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: calc(100% - 260px);
+}
+
+.top-bar {
+    width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-bar > #searchInput {
+    margin-right: auto;
+}
+
+.top-bar > .user-profile {
+    margin-left: auto;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+#sharedSettingsContainer {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+#sharedSettingsContainer .settings-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+/* =========================================
+   RESPONSIVE LAYOUT
+========================================= */
+
+@media (max-width: 1100px) {
+    .students-toolbar {
+        grid-template-columns:
+            minmax(130px, 1fr)
+            minmax(140px, 1fr);
+    }
+
+    .student-search-filter {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .brand {
+        margin-bottom: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        padding: 0.65rem 0.75rem;
+    }
+
+    .sidebar-footer {
+        margin-top: 1rem;
+    }
+
+    .top-bar {
+        min-height: 64px;
+        height: auto;
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+    }
+
+    .top-bar input {
+        width: 100%;
+        flex: 1 1 180px;
+    }
+
+    .content-area {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .counters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 600px) {
+    .content-area {
+        padding: 0.75rem;
+    }
+
+    .panel {
+        padding: 0.9rem;
+    }
+
+    .panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .students-toolbar {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 16px 0;
+    }
+
+    .student-search-filter {
+        grid-column: auto;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .counter-card {
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .actions {
+        width: 100%;
+    }
+
+    .actions .btn {
+        flex: 1;
+    }
+
+    .data-table {
+        min-width: 650px;
+    }
+
+    .user-profile {
+        margin-left: auto;
+    }
+}
+
+
+/* ==================================================
+   STUDENT ACCOUNT MODAL
+================================================== */
+
+.account-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(3px);
+}
+
+.account-modal-overlay.active {
+    display: flex;
+}
+
+.account-modal-card {
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 28px;
+    border: 1px solid var(--border-color, #334155);
+    border-radius: 14px;
+    background: var(--panel-bg, #1e293b);
+    color: var(--text-color, #f1f5f9);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+}
+
+.account-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.account-modal-header h2 {
+    margin: 0 0 6px;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--text-color, #f1f5f9);
+}
+
+.account-modal-header p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-muted, #94a3b8);
+}
+
+.account-modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-muted, #94a3b8);
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.account-modal-close:hover {
+    background: rgba(148, 163, 184, 0.15);
+    color: var(--text-color, #f1f5f9);
+}
+
+/* ==================================================
+   STUDENT ACCOUNT FORM
+================================================== */
+
+.account-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.account-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.account-form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.account-form-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-color, #f1f5f9);
+}
+
+.account-form-field label .required {
+    color: #ef4444;
+    margin-left: 3px;
+}
+
+.account-form-field input,
+.account-form-field select {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color, #334155);
+    border-radius: 8px;
+    outline: none;
+    background: var(--input-bg, #0f172a);
+    color: var(--text-color, #f1f5f9);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.account-form-field input:focus,
+.account-form-field select:focus {
+    border-color: var(--accent-color, #3b82f6);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.account-form-field input::placeholder {
+    color: var(--text-muted, #94a3b8);
+    opacity: 0.7;
+}
+
+.account-form-field input:disabled,
+.account-form-field select:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.account-form-help {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--text-muted, #94a3b8);
+}
+
+/* ==================================================
+   FORM MESSAGE
+================================================== */
+
+.account-form-message {
+    display: none;
+    margin-top: 18px;
+    padding: 11px 13px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.account-form-message.success {
+    display: block;
+    color: #16a34a;
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.25);
+}
+
+.account-form-message.error {
+    display: block;
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.25);
+}
+
+.account-form-message.info {
+    display: block;
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.25);
+}
+
+/* ==================================================
+   MODAL ACTION BUTTONS
+================================================== */
+
+.account-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-color, #334155);
+}
+
+.account-modal-actions button {
+    min-height: 39px;
+    padding: 9px 17px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.account-modal-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ==================================================
+   STUDENT ACCOUNT ACTIONS
+================================================== */
+
+.student-account-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 600px) {
+
+    .account-modal-overlay {
+        align-items: flex-start;
+        padding: 12px;
+    }
+
+    .account-modal-card {
+        max-height: 95vh;
+        padding: 20px;
+        border-radius: 11px;
+    }
+
+    .account-modal-header h2 {
+        font-size: 19px;
+    }
+
+    .account-form-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .account-form-field.full-width {
+        grid-column: auto;
+    }
+
+    .account-modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .account-modal-actions button {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   ADD STUDENT BUTTON - VISIBILITY FIX
+========================================= */
+
+#studentsView .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+#addStudentBtn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    min-height: 38px;
+    padding: 0.6rem 1rem;
+    background: #769ACB !important;
+    color: #FFFFFF !important;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#addStudentBtn:hover {
+    background: #5F83B5 !important;
+}

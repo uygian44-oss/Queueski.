@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QUEUESKI - Home</title>
+
+        <link rel="stylesheet" href="../css/pages.css">
+        <link rel="stylesheet" href="../css/nav.css">
+    </head>
+    <body>
+
+        <!-- Shared Student Navbar -->
+        <div id="sharedStudentNavbar" data-page="home"></div>
+
+        <main class="dashboard-container">
+
+            <!-- Welcome Section -->
+            <section class="welcome-card">
+                <h2>Welcome Back!</h2>
+                <p>
+                    Student ID:
+                    <strong id="displayStudentNum">2025-6420-ICP</strong>
+                </p>
+            </section>
+
+            <!-- Student Services -->
+            <section class="services-grid">
+
+                <!-- Accounting -->
+                <div class="service-card">
+                    <div class="card-icon">💳</div>
+                    <h3>ACCOUNTING</h3>
+                    <p>View statement of account, balance, and payment
+                        history.</p>
+
+                    <button class="action-btn" id="btnAccounting">
+                        Open Accounting
+                    </button>
+                </div>
+
+                <!-- Registrar -->
+                <div class="service-card">
+                    <div class="card-icon">📋</div>
+                    <h3>REGISTRAR / RIC</h3>
+                    <p>Request grades, transcript of records, and enrollment
+                        documents.</p>
+
+                    <button class="action-btn" id="btnRegistrar">
+                        Open Registrar
+                    </button>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Shared Navbar Script -->
+        <script src="../js/common.js"></script>
+
+        <!-- Home Page Script -->
+        <script src="../js/home.js"></script>
+
+    </body>
+</html>
